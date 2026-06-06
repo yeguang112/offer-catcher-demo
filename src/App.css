@@ -185,7 +185,7 @@
 
 .offer-mascot {
   position: fixed;
-  z-index: 6;
+  z-index: 31;
   top: 58vh;
   left: 91vw;
   width: 142px;
@@ -271,7 +271,7 @@
 }
 
 .offer-mascot--home {
-  z-index: 3;
+  z-index: 31;
   top: 61vh;
   left: 50.5vw;
   width: clamp(245px, 19vw, 330px);
@@ -279,7 +279,7 @@
 }
 
 .offer-mascot--home.offer-mascot--docked {
-  z-index: 7;
+  z-index: 31;
   top: 72vh;
   left: calc(100vw - 96px);
   width: 126px;
@@ -390,14 +390,87 @@
   border-radius: 999px;
 }
 
+.cat-click-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.cat-click-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.cat-tail-strike {
+  fill: #050505;
+  stroke: rgba(255, 248, 234, 0.18);
+  stroke-width: 1.5px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 18px 18px rgba(42, 24, 16, 0.24));
+  shape-rendering: geometricPrecision;
+  transform-box: view-box;
+  will-change: transform, opacity;
+  animation: catTailStrike 560ms cubic-bezier(0.16, 0.9, 0.28, 1) forwards;
+}
+
+.cat-hit-mark {
+  position: fixed;
+  width: 38px;
+  height: 30px;
+  border-radius: 999px;
+  transform: translate(-50%, -50%) scale(0.72) rotate(-8deg);
+  transform-origin: center;
+  animation: catHitPop 560ms cubic-bezier(0.16, 0.9, 0.28, 1) forwards;
+}
+
+.cat-hit-mark::before,
+.cat-hit-mark::after {
+  content: '';
+  position: absolute;
+  inset: 50%;
+  border-radius: 999px;
+  transform: translate(-50%, -50%);
+}
+
+.cat-hit-mark::before {
+  width: 18px;
+  height: 18px;
+  border: 0;
+  background: radial-gradient(circle, rgba(255, 248, 215, 0.95) 0 18%, rgba(244, 164, 60, 0.72) 22% 48%, rgba(244, 164, 60, 0) 62%);
+  transform: translate(-50%, -50%) scale(0.32);
+  animation: catImpactDot 520ms ease-out forwards;
+}
+
+.cat-hit-mark::after {
+  width: 34px;
+  height: 13px;
+  background: rgba(5, 5, 5, 0.18);
+  filter: blur(1.5px);
+  transform: translate(-50%, -50%) rotate(-11deg) scale(0.42);
+  animation: catTailSmack 520ms ease-out forwards;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .offer-mascot,
   .offer-mascot img,
   .offer-mascot::before,
   .offer-mascot::after,
-  .offer-mascot span {
+  .offer-mascot span,
+  .cat-tail-strike,
+  .cat-hit-mark,
+  .cat-hit-mark::before,
+  .cat-hit-mark::after {
     animation: none;
     transition: none;
+  }
+
+  .cat-click-layer {
+    display: none;
   }
 }
 
@@ -2133,6 +2206,86 @@
   100% {
     opacity: 0;
     transform: translateX(16px) translateY(0) rotate(-10deg) scale(1);
+  }
+}
+
+@keyframes catTailStrike {
+  0% {
+    opacity: 0;
+    transform: scale(0.08) rotate(-4deg);
+  }
+  12% {
+    opacity: 1;
+    transform: scale(0.76) rotate(2deg);
+  }
+  32% {
+    opacity: 1;
+    transform: scale(1.04) rotate(-1deg);
+  }
+  52% {
+    opacity: 1;
+    transform: scale(0.96) rotate(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.12) rotate(5deg);
+  }
+}
+
+@keyframes catHitPop {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.58) rotate(-15deg);
+  }
+  24% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.04) rotate(-6deg);
+  }
+  58% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0.96) rotate(-9deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.82) rotate(-2deg);
+  }
+}
+
+@keyframes catTailSmack {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(-12deg) scale(0.35);
+  }
+  34% {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(-12deg) scale(0.35);
+  }
+  48% {
+    opacity: 0.38;
+    transform: translate(-50%, -50%) rotate(-12deg) scale(1.12);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(-12deg) scale(0.82);
+  }
+}
+
+@keyframes catImpactDot {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.18);
+  }
+  26% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+  58% {
+    opacity: 0.78;
+    transform: translate(-50%, -50%) scale(0.82);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.36);
   }
 }
 
