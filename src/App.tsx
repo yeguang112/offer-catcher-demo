@@ -4,6 +4,7 @@ import { AppShell } from './components/AppShell'
 import { JobDetailPage } from './pages/JobDetailPage'
 import { LandingPage } from './pages/LandingPage'
 import { QuizPage } from './pages/QuizPage'
+import { QuestSimulatorPage } from './pages/QuestSimulatorPage'
 import { ResultsPage } from './pages/ResultsPage'
 import { ResumeLabPage } from './pages/ResumeLabPage'
 import { UploadResumePage } from './pages/UploadResumePage'
@@ -17,6 +18,7 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/intake/upload" element={<UploadResumePage />} />
           <Route path="/intake/quiz" element={<QuizPage />} />
+          <Route path="/quest" element={<QuestSimulatorPage />} />
           <Route path="/results" element={<ResultsPage />} />
           <Route path="/jobs/:jobId" element={<JobDetailPage />} />
           <Route path="/resume-lab" element={<ResumeLabPage />} />

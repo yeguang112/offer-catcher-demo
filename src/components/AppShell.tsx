@@ -1,7 +1,9 @@
 import { Link, NavLink, Outlet } from 'react-router-dom'
+import { OfferMascot } from './OfferMascot'
 
 const navItems = [
   { to: '/', label: '首页' },
+  { to: '/quest', label: '求职副本' },
   { to: '/intake/upload', label: '上传简历' },
   { to: '/intake/quiz', label: '画像测评' },
   { to: '/results', label: '匹配看板' },
@@ -32,6 +34,7 @@ export function AppShell() {
       </header>
 
       <Outlet />
+      <OfferMascot />
     </div>
   )
 }

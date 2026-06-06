@@ -1,0 +1,187 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 460" fill="none">
+  <defs>
+    <style>
+      #cat-left-upper-lid,
+      #cat-right-upper-lid {
+        animation: catUpperBlink 5.2s ease-in-out infinite;
+        transform: translateY(-84px);
+        transform-box: fill-box;
+        transform-origin: center;
+      }
+
+      #cat-left-lower-lid,
+      #cat-right-lower-lid {
+        animation: catLowerBlink 5.2s ease-in-out infinite;
+        transform: translateY(84px);
+        transform-box: fill-box;
+        transform-origin: center;
+      }
+
+      #cat-right-upper-lid,
+      #cat-right-lower-lid {
+        animation-delay: 0.08s;
+      }
+
+      #cat-tail {
+        animation: catTail 2.8s ease-in-out infinite;
+        transform-box: fill-box;
+        transform-origin: 20% 52%;
+      }
+
+      #cat-star {
+        animation: catStar 2.4s ease-in-out infinite;
+        transform-box: fill-box;
+        transform-origin: center;
+      }
+
+      #cat-left-foot,
+      #cat-right-foot {
+        animation: catFoot 3.4s ease-in-out infinite;
+        transform-box: fill-box;
+        transform-origin: top center;
+      }
+
+      #cat-right-foot {
+        animation-delay: 0.5s;
+      }
+
+      @keyframes catUpperBlink {
+        0%,
+        86%,
+        93%,
+        100% {
+          transform: translateY(-84px);
+        }
+        89%,
+        91% {
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes catLowerBlink {
+        0%,
+        86%,
+        93%,
+        100% {
+          transform: translateY(84px);
+        }
+        89%,
+        91% {
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes catTail {
+        0%,
+        100% {
+          transform: rotate(-2deg);
+        }
+        50% {
+          transform: rotate(9deg);
+        }
+      }
+
+      @keyframes catStar {
+        0%,
+        100% {
+          transform: scale(1) rotate(0deg);
+          opacity: 0.92;
+        }
+        50% {
+          transform: scale(1.08) rotate(5deg);
+          opacity: 1;
+        }
+      }
+
+      @keyframes catFoot {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        45% {
+          transform: translateY(-5px);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        #cat-left-upper-lid,
+        #cat-right-upper-lid,
+        #cat-left-lower-lid,
+        #cat-right-lower-lid,
+        #cat-tail,
+        #cat-star,
+        #cat-left-foot,
+        #cat-right-foot {
+          animation: none;
+        }
+      }
+    </style>
+    <filter id="catShadow" x="-18%" y="-18%" width="136%" height="140%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="20" stdDeviation="16" flood-color="#1e130d" flood-opacity="0.22"/>
+    </filter>
+    <radialGradient id="eyeGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(0 0) scale(46)">
+      <stop stop-color="#fffdf7"/>
+      <stop offset="0.72" stop-color="#fff8ea"/>
+      <stop offset="1" stop-color="#eadfd4"/>
+    </radialGradient>
+    <radialGradient id="starGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(93 252) rotate(90) scale(62)">
+      <stop stop-color="#fff8be"/>
+      <stop offset="0.48" stop-color="#ffb43a"/>
+      <stop offset="1" stop-color="#dd7321"/>
+    </radialGradient>
+    <linearGradient id="badge" x1="166" y1="298" x2="258" y2="354" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff3d9"/>
+      <stop offset="1" stop-color="#f3b65c"/>
+    </linearGradient>
+    <clipPath id="catLeftEyeClip">
+      <ellipse cx="157" cy="168" rx="46" ry="48"/>
+    </clipPath>
+    <clipPath id="catRightEyeClip">
+      <ellipse cx="273" cy="166" rx="46" ry="48"/>
+    </clipPath>
+  </defs>
+
+  <ellipse cx="216" cy="405" rx="112" ry="24" fill="#1d130f" opacity="0.13"/>
+  <g filter="url(#catShadow)" transform="rotate(-4 210 228)">
+    <path d="M102 148C90 79 106 30 132 22c17 35 42 60 76 65 23-8 47-8 72 0 33-7 56-31 75-67 24 11 38 61 23 129 21 26 31 60 27 98-8 83-82 136-180 132-99-4-163-63-159-147 2-35 14-64 36-84Z" fill="#050505"/>
+    <path d="M117 149c-10-49-4-86 9-101 18 30 42 49 73 55-31 6-59 21-82 46Z" fill="#0b0b0b"/>
+    <path d="M297 102c29-7 49-26 66-57 11 20 13 59 2 104-18-24-41-39-68-47Z" fill="#0b0b0b"/>
+
+    <ellipse cx="157" cy="168" rx="46" ry="48" fill="url(#eyeGlow)"/>
+    <ellipse cx="273" cy="166" rx="46" ry="48" fill="url(#eyeGlow)"/>
+    <ellipse cx="166" cy="170" rx="25" ry="27" fill="#050505"/>
+    <ellipse cx="264" cy="166" rx="25" ry="27" fill="#050505"/>
+    <circle cx="147" cy="148" r="8" fill="#fffdf7"/>
+    <circle cx="252" cy="144" r="8" fill="#fffdf7"/>
+    <g clip-path="url(#catLeftEyeClip)">
+      <rect id="cat-left-upper-lid" x="96" y="98" width="122" height="84" fill="#050505"/>
+      <rect id="cat-left-lower-lid" x="96" y="154" width="122" height="88" fill="#050505"/>
+    </g>
+    <g clip-path="url(#catRightEyeClip)">
+      <rect id="cat-right-upper-lid" x="212" y="96" width="122" height="84" fill="#050505"/>
+      <rect id="cat-right-lower-lid" x="212" y="152" width="122" height="88" fill="#050505"/>
+    </g>
+
+    <path d="M210 220c-6 12-17 17-29 10M225 220c8 12 19 16 31 8" stroke="#fff8ea" stroke-width="7" stroke-linecap="round"/>
+    <path d="M224 208l-10 10-11-10c4-8 17-9 21 0Z" fill="#fff8ea"/>
+
+    <path d="M79 219c-24-6-48-4-70 6M83 243c-24 3-47 11-66 26M340 219c24-6 48-4 70 6M337 243c25 3 48 11 67 26" stroke="#050505" stroke-width="9" stroke-linecap="round"/>
+    <path d="M88 221c-19-4-38-3-57 3M333 221c19-4 38-3 57 3" stroke="#fff8ea" stroke-opacity="0.82" stroke-width="4" stroke-linecap="round"/>
+
+    <g id="cat-star">
+      <path d="M129 285c14 43 23 55 61 70-40 12-56 27-80 64-6-43-15-61-48-86 37-4 52-14 67-48Z" fill="url(#starGlow)"/>
+      <path d="M130 306c8 25 14 33 37 42-25 8-35 17-49 39-4-27-9-38-30-54 24-3 34-9 42-27Z" stroke="#fff8d7" stroke-width="5" stroke-linejoin="round" opacity="0.7"/>
+    </g>
+
+    <ellipse cx="219" cy="317" rx="58" ry="42" fill="#050505"/>
+    <path d="M169 318c18 24 75 33 106 8 5 31-13 56-52 58-40 2-61-24-54-66Z" fill="#050505"/>
+    <path d="M188 313c20 20 50 22 72 1" stroke="url(#badge)" stroke-width="10" stroke-linecap="round"/>
+    <circle cx="222" cy="329" r="15" fill="url(#badge)"/>
+    <path d="M215 329h14M222 322v14" stroke="#3a2214" stroke-width="4" stroke-linecap="round"/>
+    <g id="cat-tail">
+      <path d="M268 336c39 10 72-5 89-38 7-14 28-4 23 12-16 53-72 87-127 58l15-32Z" fill="#050505"/>
+    </g>
+    <path id="cat-left-foot" d="M164 351c-20 24-51 27-72 12-10-7-9-22 1-29 15-10 34-4 58-15l27 14c-3 6-8 12-14 18Z" fill="#050505"/>
+    <path id="cat-right-foot" d="M260 352c20 23 51 27 72 12 10-7 9-22-1-29-15-10-34-4-58-15l-27 14c3 6 8 12 14 18Z" fill="#050505"/>
+  </g>
+</svg>
