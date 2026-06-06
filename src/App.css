@@ -278,6 +278,20 @@
   transform: translate(-50%, -50%) rotate(-8deg);
 }
 
+.offer-mascot--home.offer-mascot--docked {
+  z-index: 7;
+  top: 72vh;
+  left: calc(100vw - 96px);
+  width: 126px;
+  filter: drop-shadow(0 18px 26px rgba(73, 42, 24, 0.16));
+  transform: translate(-50%, -50%) rotate(6deg);
+}
+
+.offer-mascot--home.offer-mascot--docked span {
+  right: 76%;
+  top: 22%;
+}
+
 .offer-mascot--quest {
   top: 79vh;
   left: 8.5vw;
@@ -339,6 +353,10 @@
 
 .offer-mascot--quest:hover {
   transform: translate(-50%, -54%) rotate(4deg) scale(1.07);
+}
+
+.offer-mascot--home.offer-mascot--docked:hover {
+  transform: translate(-50%, -54%) rotate(2deg) scale(1.07);
 }
 
 .offer-mascot--upload:hover,
@@ -2161,6 +2179,12 @@
     width: 154px;
   }
 
+  .offer-mascot--home.offer-mascot--docked {
+    top: calc(100vh - 96px);
+    left: calc(100vw - 76px);
+    width: 112px;
+  }
+
   .offer-mascot:hover {
     transform: translate(-50%, -54%) rotate(-2deg) scale(1.06);
   }
@@ -2212,6 +2236,12 @@
     top: 58vh;
     left: 78vw;
     width: 112px;
+  }
+
+  .offer-mascot--home.offer-mascot--docked {
+    top: calc(100vh - 76px);
+    left: calc(100vw - 58px);
+    width: 88px;
   }
 
   .offer-mascot span {

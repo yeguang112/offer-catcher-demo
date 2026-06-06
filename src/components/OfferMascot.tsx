@@ -51,7 +51,10 @@ export function OfferMascot() {
   const { pathname } = useLocation()
   const previousPath = useRef(pathname)
   const [isMoving, setIsMoving] = useState(false)
+  const [hasScrolledPastHero, setHasScrolledPastHero] = useState(() => window.scrollY > 260)
   const config = routeMascot.find((item) => item.test(pathname)) ?? routeMascot[0]
+  const isHome = config.variant === 'home'
+  const isDocked = isHome && hasScrolledPastHero
 
   useEffect(() => {
     if (previousPath.current === pathname) return
@@ -63,10 +66,22 @@ export function OfferMascot() {
     return () => window.clearTimeout(timer)
   }, [pathname])
 
+  useEffect(() => {
+    const updateDock = () => {
+      setHasScrolledPastHero(window.scrollY > 260)
+    }
+
+    window.addEventListener('scroll', updateDock, { passive: true })
+
+    return () => window.removeEventListener('scroll', updateDock)
+  }, [])
+
   return (
     <Link
       to={config.to}
-      className={`offer-mascot offer-mascot--${config.variant} ${isMoving ? 'offer-mascot--moving' : ''}`}
+      className={`offer-mascot offer-mascot--${config.variant} ${isMoving ? 'offer-mascot--moving' : ''} ${
+        isDocked ? 'offer-mascot--docked' : ''
+      }`}
       aria-label={config.label}
     >
       <img src={offerCat} alt="" aria-hidden="true" />
