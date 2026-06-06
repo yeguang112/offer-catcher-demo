@@ -1,20 +1,27 @@
 :root {
-  font-family: var(--font-body);
-  color: #162033;
+  --font-display: 'Aptos Display', 'Noto Serif SC', 'Source Han Serif SC', 'Microsoft YaHei', serif;
+  --font-body: 'Aptos', 'Noto Sans SC', 'Microsoft YaHei', sans-serif;
+  --bg: #f4f1ea;
+  --bg-soft: #fbfaf6;
+  --ink-strong: #151a17;
+  --ink: #29332f;
+  --ink-soft: #66726c;
+  --brand: #1f5e4b;
+  --brand-strong: #123d32;
+  --accent: #d98a3a;
+  --mint: #dcebe4;
+  --line: rgba(21, 26, 23, 0.1);
+  --line-strong: rgba(21, 26, 23, 0.18);
+  --shadow: 0 28px 80px rgba(31, 42, 37, 0.12);
+  color: var(--ink);
   background:
-    radial-gradient(circle at top left, rgba(13, 104, 255, 0.08), transparent 28%),
-    radial-gradient(circle at top right, rgba(7, 196, 144, 0.08), transparent 24%),
-    linear-gradient(180deg, #f7faff 0%, #eef4ff 100%);
+    radial-gradient(circle at 12% 8%, rgba(217, 138, 58, 0.18), transparent 28%),
+    radial-gradient(circle at 88% 18%, rgba(31, 94, 75, 0.16), transparent 30%),
+    linear-gradient(180deg, #fbfaf6 0%, var(--bg) 58%, #eee8dd 100%);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  --font-display: 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
-  --font-body: 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
-  --brand: #0c50ec;
-  --ink-strong: #172033;
-  --ink-soft: #5f6f8b;
-  --line: rgba(23, 32, 51, 0.08);
 }
 
 * {
@@ -28,6 +35,7 @@ html {
 body {
   margin: 0;
   min-width: 320px;
+  font-family: var(--font-body);
 }
 
 body::before {
@@ -35,11 +43,11 @@ body::before {
   position: fixed;
   inset: 0;
   background-image:
-    linear-gradient(rgba(12, 80, 236, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(12, 80, 236, 0.035) 1px, transparent 1px);
-  background-size: 28px 28px;
+    linear-gradient(rgba(21, 26, 23, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(21, 26, 23, 0.035) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.72), transparent 72%);
   pointer-events: none;
-  mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.24));
 }
 
 a {
@@ -52,6 +60,10 @@ input,
 textarea,
 select {
   font: inherit;
+}
+
+button {
+  color: inherit;
 }
 
 #root {
