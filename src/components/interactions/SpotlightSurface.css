@@ -1,0 +1,23 @@
+.oc-spotlight-surface {
+  position: relative;
+  isolation: isolate;
+}
+
+.oc-spotlight-surface::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  border-radius: inherit;
+  opacity: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(360px circle at var(--oc-spot-x) var(--oc-spot-y), rgba(255, 179, 71, 0.16), transparent 45%),
+    radial-gradient(230px circle at var(--oc-spot-x) var(--oc-spot-y), rgba(20, 184, 166, 0.14), transparent 55%);
+  transition: opacity 220ms ease;
+}
+
+.oc-spotlight-surface:hover::before {
+  opacity: 1;
+}
+

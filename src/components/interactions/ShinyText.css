@@ -1,0 +1,25 @@
+.oc-shiny-text {
+  display: inline-block;
+  color: transparent;
+  background-image: linear-gradient(
+    var(--oc-shine-spread),
+    var(--oc-shine-color) 0%,
+    var(--oc-shine-color) 35%,
+    var(--oc-shine-highlight) 50%,
+    var(--oc-shine-color) 65%,
+    var(--oc-shine-color) 100%
+  );
+  background-size: 220% auto;
+  background-position: 150% center;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: ocShinyText var(--oc-shine-speed) linear var(--oc-shine-delay) infinite;
+}
+
+@keyframes ocShinyText {
+  to {
+    background-position: -70% center;
+  }
+}
+

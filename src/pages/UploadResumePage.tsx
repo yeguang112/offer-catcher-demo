@@ -2,6 +2,9 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { buildProfileFromResumeText } from '../app/data'
 import { useProfile } from '../app/use-profile'
+import DecryptedText from '../components/interactions/DecryptedText'
+import ShinyText from '../components/interactions/ShinyText'
+import SpotlightSurface from '../components/interactions/SpotlightSurface'
 import { StepRail } from '../components/StepRail'
 
 const resumeSamples = [
@@ -36,23 +39,23 @@ export function UploadResumePage() {
     <main>
       <section className="section page-hero">
         <div className="page-hero-copy">
-          <span className="section-kicker">入口 01 / 简历解析</span>
-          <h1>先把你是谁说清楚，再谈岗位匹配。</h1>
+          <span className="section-kicker"><ShinyText text="入口 01 / 简历解析" /></span>
+          <h1><DecryptedText text="先把你是谁说清楚，再谈岗位匹配。" revealDirection="center" /></h1>
           <p>
             上传页只完成一件事：建立候选人画像。完成后再进入岗位看板，整个流程会更像真实求职产品，而不是把所有卡片塞在一起。
           </p>
         </div>
-        <aside className="hero-panel compact-panel">
+        <SpotlightSurface className="hero-panel compact-panel cursor-target">
           <div className="hero-panel-header">
             <span>当前阶段</span>
             <strong>生成画像</strong>
           </div>
           <StepRail currentStep="profile" />
-        </aside>
+        </SpotlightSurface>
       </section>
 
       <section className="section workspace-grid">
-        <article className="panel">
+        <SpotlightSurface as="article" className="panel cursor-target">
           <div className="panel-header">
             <div>
               <span className="section-kicker">简历输入</span>
@@ -100,9 +103,9 @@ export function UploadResumePage() {
               生成画像并进入匹配看板
             </button>
           </div>
-        </article>
+        </SpotlightSurface>
 
-        <aside className="panel">
+        <SpotlightSurface className="panel cursor-target">
           <div className="panel-header">
             <div>
               <span className="section-kicker">实时画像预览</span>
@@ -151,7 +154,7 @@ export function UploadResumePage() {
               </button>
             ))}
           </div>
-        </aside>
+        </SpotlightSurface>
       </section>
     </main>
   )

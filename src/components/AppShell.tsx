@@ -1,4 +1,7 @@
 import { Link, NavLink, Outlet } from 'react-router-dom'
+import CaseBackdrop from './interactions/CaseBackdrop'
+import CaseDock from './interactions/CaseDock'
+import TargetCursor from './interactions/TargetCursor'
 import { OfferMascot } from './OfferMascot'
 
 const navItems = [
@@ -13,6 +16,9 @@ const navItems = [
 export function AppShell() {
   return (
     <div className="app-shell">
+      <TargetCursor />
+      <CaseBackdrop />
+      <div className="oc-page-grain" aria-hidden="true" />
       <header className="topbar">
         <div className="topbar-inner">
           <Link to="/" className="brand" aria-label="Offer Catcher 首页">
@@ -34,6 +40,7 @@ export function AppShell() {
       </header>
 
       <Outlet />
+      <CaseDock />
       <OfferMascot />
     </div>
   )

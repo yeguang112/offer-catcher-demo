@@ -10,6 +10,9 @@ import scenePortfolio from '../assets/quest/scene-portfolio.png'
 import sceneResearch from '../assets/quest/scene-research.png'
 import sceneResume from '../assets/quest/scene-resume.png'
 import sceneStrategy from '../assets/quest/scene-strategy.png'
+import DecryptedText from '../components/interactions/DecryptedText'
+import ShinyText from '../components/interactions/ShinyText'
+import SpotlightSurface from '../components/interactions/SpotlightSurface'
 
 type AbilityKey = 'direction' | 'resume' | 'communication' | 'interview'
 
@@ -429,8 +432,8 @@ export function QuestSimulatorPage() {
       <main className="quest-screen quest-opening">
         <section className="quest-opening-card">
           <div className="quest-opening-copy">
-            <span className="quest-eyebrow">Offer Quest Simulator</span>
-            <h1>把一次求职，拆成 7 幕可选择的现场。</h1>
+            <span className="quest-eyebrow"><ShinyText text="Offer Quest Simulator" color="rgba(255,255,255,0.58)" shineColor="#ffffff" /></span>
+            <h1><DecryptedText text="把一次求职，拆成 7 幕可选择的现场。" revealDirection="center" /></h1>
             <p>
               不是大字海报，也不是单页问卷。每一幕都有对应场景图和一个真实求职决策：从 JD、岗位侦察、简历急救，到 HR 私信、面试和投递策略。
             </p>
@@ -444,7 +447,7 @@ export function QuestSimulatorPage() {
             </div>
           </div>
 
-          <aside className="quest-cover-panel">
+          <SpotlightSurface className="quest-cover-panel cursor-target">
             <div className="quest-cover-summary">
               <span>剧情式诊断</span>
               <strong>每个选择，都回到真实求职能力。</strong>
@@ -461,7 +464,7 @@ export function QuestSimulatorPage() {
                 </i>
               ))}
             </div>
-          </aside>
+          </SpotlightSurface>
         </section>
       </main>
     )
@@ -476,8 +479,8 @@ export function QuestSimulatorPage() {
             <strong>{ending.passRate}%</strong>
           </div>
           <div className="ending-copy">
-            <span className="quest-eyebrow">Quest Ending</span>
-            <h1>{ending.title}</h1>
+            <span className="quest-eyebrow"><ShinyText text="Quest Ending" color="rgba(255,255,255,0.58)" shineColor="#ffffff" /></span>
+            <h1><DecryptedText text={ending.title} revealDirection="center" /></h1>
             <p>{ending.subtitle}</p>
             <div className="ending-tags">
               {ending.tags.slice(0, 10).map((tag) => (
@@ -524,9 +527,9 @@ export function QuestSimulatorPage() {
               </em>
             </div>
 
-            <div className="scene-glass-panel">
-              <span className="scene-kicker">{scene.focus}</span>
-              <h1>{scene.title}</h1>
+            <SpotlightSurface className="scene-glass-panel cursor-target">
+              <span className="scene-kicker"><ShinyText text={scene.focus} color="rgba(255,255,255,0.62)" shineColor="#ffffff" /></span>
+              <h1><DecryptedText key={scene.stage} text={scene.title} revealDirection="center" /></h1>
               <p>{scene.desc}</p>
               <div className="director-note">{scene.directorNote}</div>
 
@@ -548,7 +551,7 @@ export function QuestSimulatorPage() {
                   </button>
                 </div>
               )}
-            </div>
+            </SpotlightSurface>
 
             <div className="scene-dot-rail" aria-label="副本进度">
               {scenes.map((item, index) => (

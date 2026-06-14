@@ -1,0 +1,17 @@
+.case-magnet-lines {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  pointer-events: none;
+}
+
+.case-magnet-lines span {
+  display: block;
+  border-radius: 999px;
+  opacity: 0.62;
+  transform: rotate(var(--rotate));
+  transform-origin: center;
+  transition: transform 140ms ease-out;
+  will-change: transform;
+}
+

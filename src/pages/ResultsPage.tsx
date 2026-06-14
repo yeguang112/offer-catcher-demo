@@ -1,6 +1,9 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { buildResumeAudit } from '../app/data'
 import { useProfile } from '../app/use-profile'
+import DecryptedText from '../components/interactions/DecryptedText'
+import ShinyText from '../components/interactions/ShinyText'
+import SpotlightSurface from '../components/interactions/SpotlightSurface'
 import { MatchCard } from '../components/MatchCard'
 import { ScoreRing } from '../components/ScoreRing'
 
@@ -19,11 +22,11 @@ export function ResultsPage() {
     <main>
       <section className="section dashboard-hero">
         <div>
-          <span className="section-kicker">匹配看板</span>
-          <h1>岗位已经按你的画像重新排序。</h1>
+          <span className="section-kicker"><ShinyText text="匹配看板" /></span>
+          <h1><DecryptedText text="岗位已经按你的画像重新排序。" revealDirection="center" /></h1>
           <p>{profile.summary}</p>
         </div>
-        <div className="profile-summary-card">
+        <SpotlightSurface className="profile-summary-card cursor-target">
           <div>
             <label>候选人</label>
             <strong>{profile.name}</strong>
@@ -40,14 +43,14 @@ export function ResultsPage() {
             <label>ATS 预估</label>
             <strong>{audit.atsPassRate}%</strong>
           </div>
-        </div>
+        </SpotlightSurface>
       </section>
 
       <section className="section dashboard-grid">
-        <article className="panel">
+        <SpotlightSurface as="article" className="panel cursor-target">
           <div className="panel-header">
             <div>
-              <span className="section-kicker">岗位目录</span>
+              <span className="section-kicker"><ShinyText text="岗位目录" speed={4.1} /></span>
               <h3>优先级排序后的投递清单</h3>
             </div>
             <strong>{rankedJobs.length} 个岗位</strong>
@@ -63,12 +66,12 @@ export function ResultsPage() {
               />
             ))}
           </div>
-        </article>
+        </SpotlightSurface>
 
-        <article className="panel detail-panel">
+        <SpotlightSurface as="article" className="panel detail-panel cursor-target">
           <div className="panel-header">
             <div>
-              <span className="section-kicker">当前岗位</span>
+              <span className="section-kicker"><ShinyText text="当前岗位" speed={4.3} /></span>
               <h3>{selectedJob.title}</h3>
               <p>
                 {selectedJob.company} · {selectedJob.city} · {selectedJob.salary}
@@ -128,13 +131,13 @@ export function ResultsPage() {
               优化这版简历
             </Link>
           </div>
-        </article>
+        </SpotlightSurface>
       </section>
 
       <section className="section">
         <div className="section-heading">
           <div>
-            <span className="section-kicker">投递节奏</span>
+            <span className="section-kicker"><ShinyText text="投递节奏" speed={4.2} /></span>
             <h2>把“我该投哪个”变成三个优先级队列。</h2>
           </div>
           <p>参考 B 端看板思路：结果不只是推荐列表，而是能直接指导行动的工作台。</p>
@@ -160,7 +163,7 @@ function BoardColumn({
   empty: string
 }) {
   return (
-    <article className="board-column">
+    <SpotlightSurface as="article" className="board-column cursor-target">
       <div className="board-head">
         <h3>{title}</h3>
         <span>{jobs.length} 个</span>
@@ -177,6 +180,6 @@ function BoardColumn({
       ) : (
         <div className="board-card empty-card">{empty}</div>
       )}
-    </article>
+    </SpotlightSurface>
   )
 }

@@ -1,0 +1,81 @@
+.oc-target-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  width: 28px;
+  height: 28px;
+  pointer-events: none;
+  opacity: 0.68;
+  mix-blend-mode: multiply;
+  transition:
+    opacity 160ms ease,
+    scale 160ms ease;
+}
+
+.oc-target-cursor::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #111827;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 18px rgba(20, 184, 166, 0.5);
+}
+
+.oc-target-cursor .corner {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border: 2px solid #111827;
+}
+
+.oc-target-cursor .tl {
+  left: 0;
+  top: 0;
+  border-right: 0;
+  border-bottom: 0;
+}
+
+.oc-target-cursor .tr {
+  top: 0;
+  right: 0;
+  border-left: 0;
+  border-bottom: 0;
+}
+
+.oc-target-cursor .br {
+  right: 0;
+  bottom: 0;
+  border-left: 0;
+  border-top: 0;
+}
+
+.oc-target-cursor .bl {
+  left: 0;
+  bottom: 0;
+  border-right: 0;
+  border-top: 0;
+}
+
+.oc-target-cursor.is-targeting {
+  opacity: 0.96;
+}
+
+.oc-target-cursor.is-targeting::after {
+  opacity: 0;
+}
+
+.oc-target-cursor.is-pressing {
+  scale: 0.92;
+}
+
+@media (pointer: coarse), (max-width: 760px) {
+  .oc-target-cursor {
+    display: none;
+  }
+}
+

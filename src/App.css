@@ -1,11 +1,38 @@
 .app-shell {
+  position: relative;
   min-height: 100vh;
   color: var(--ink);
+  isolation: isolate;
+}
+
+.oc-ambient-waves,
+.oc-page-grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+
+.oc-ambient-waves {
+  z-index: -4;
+  opacity: 0.95;
+}
+
+.oc-page-grain {
+  z-index: -3;
+  opacity: 0.48;
+  background:
+    radial-gradient(circle at 15% 12%, rgba(217, 138, 58, 0.15), transparent 30%),
+    radial-gradient(circle at 82% 18%, rgba(31, 94, 75, 0.12), transparent 32%),
+    radial-gradient(circle at 50% 92%, rgba(20, 184, 166, 0.08), transparent 28%),
+    linear-gradient(rgba(21, 26, 23, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(21, 26, 23, 0.02) 1px, transparent 1px);
+  background-size: auto, auto, auto, 72px 72px, 72px 72px;
+  mask-image: linear-gradient(180deg, black 0%, rgba(0, 0, 0, 0.72) 68%, transparent 100%);
 }
 
 .topbar {
   position: relative;
-  z-index: 10;
+  z-index: 220;
   padding: 18px 24px 0;
 }
 
@@ -3647,5 +3674,549 @@
 
   .scene-card-immersive:hover .scene-glass-panel {
     transform: translateY(-2px);
+  }
+}
+
+/* Case-file visual direction: a brighter detective desk instead of the previous app-template feel. */
+.app-shell {
+  padding-bottom: 84px;
+}
+
+.oc-page-grain {
+  z-index: -3;
+  opacity: 0.34;
+  background:
+    radial-gradient(circle at 12% 12%, rgba(255, 196, 96, 0.22), transparent 26%),
+    radial-gradient(circle at 86% 16%, rgba(65, 92, 255, 0.11), transparent 24%),
+    linear-gradient(rgba(17, 24, 39, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17, 24, 39, 0.026) 1px, transparent 1px);
+  background-size: auto, auto, 54px 54px, 54px 54px;
+}
+
+.topbar-inner {
+  border-radius: 18px 18px 28px 28px;
+  background:
+    linear-gradient(180deg, rgba(255, 250, 236, 0.9), rgba(248, 238, 219, 0.78)),
+    rgba(255, 250, 236, 0.8);
+  box-shadow:
+    inset 0 -1px 0 rgba(17, 24, 39, 0.08),
+    0 20px 60px rgba(84, 58, 25, 0.12);
+}
+
+.brand-mark {
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 35% 30%, #ffd47d 0 18%, transparent 19%),
+    #111827;
+  color: #fff8ec;
+  transform: rotate(-6deg);
+}
+
+.topnav a {
+  border: 1px solid transparent;
+}
+
+.topnav a:hover,
+.topnav a.active {
+  border-color: rgba(17, 24, 39, 0.16);
+  background: #111827;
+  color: #fff8ec;
+}
+
+.hero {
+  grid-template-columns: minmax(0, 1.05fr) minmax(420px, 0.95fr);
+  gap: 22px;
+}
+
+.hero-copy,
+.page-hero-copy,
+.panel,
+.hero-panel,
+.route-card,
+.module-card,
+.board-column,
+.framework-card,
+.quiz-focus,
+.quiz-side {
+  border: 1px solid rgba(17, 24, 39, 0.16);
+  background:
+    linear-gradient(135deg, rgba(255, 250, 236, 0.92), rgba(246, 232, 204, 0.78)),
+    rgba(255, 250, 236, 0.82);
+  box-shadow:
+    0 22px 80px rgba(84, 58, 25, 0.13),
+    inset 0 1px 0 rgba(255, 255, 255, 0.68);
+}
+
+.hero-copy {
+  border-radius: 26px;
+  clip-path: polygon(0 0, calc(100% - 34px) 0, 100% 34px, 100% 100%, 0 100%);
+}
+
+.hero-copy::before {
+  content: 'CASE 2676177514';
+  position: absolute;
+  right: 28px;
+  top: 24px;
+  z-index: 2;
+  padding: 8px 10px;
+  border: 1px dashed rgba(17, 24, 39, 0.28);
+  border-radius: 999px;
+  color: rgba(17, 24, 39, 0.5);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  transform: rotate(4deg);
+}
+
+.hero h1 {
+  max-width: 12.5ch;
+  font-size: clamp(3rem, 6.4vw, 7.2rem);
+  letter-spacing: -0.085em;
+}
+
+.case-type-line {
+  position: relative;
+  z-index: 2;
+  width: fit-content;
+  max-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-top: 22px;
+  padding: 10px 13px;
+  border: 1px solid rgba(17, 24, 39, 0.14);
+  border-radius: 16px;
+  background: rgba(17, 24, 39, 0.06);
+  color: #111827;
+  font-weight: 900;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.42);
+}
+
+.case-type-line > span {
+  color: rgba(17, 24, 39, 0.54);
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero-actions .primary-action,
+.primary-action {
+  background: #111827;
+  color: #fff8ec;
+  box-shadow: 0 18px 46px rgba(17, 24, 39, 0.18);
+}
+
+.secondary-action {
+  border-color: rgba(17, 24, 39, 0.16);
+  background: rgba(255, 250, 236, 0.72);
+}
+
+.hero-panel,
+.route-card,
+.module-card,
+.panel,
+.board-column {
+  border-radius: 22px;
+}
+
+.route-card,
+.module-card,
+.board-column {
+  position: relative;
+  overflow: hidden;
+}
+
+.route-card::after,
+.module-card::after,
+.board-column::after {
+  content: '';
+  position: absolute;
+  right: -34px;
+  bottom: -34px;
+  width: 112px;
+  height: 112px;
+  border: 1px dashed rgba(17, 24, 39, 0.16);
+  border-radius: 50%;
+}
+
+.quest-entry-panel {
+  transform: rotate(1deg);
+}
+
+.route-card-dark {
+  background:
+    radial-gradient(circle at 16% 8%, rgba(255, 196, 96, 0.24), transparent 32%),
+    #111827;
+}
+
+.route-card-dark h2,
+.route-card-dark p,
+.route-card-dark span {
+  color: #fff8ec;
+}
+
+.section-heading {
+  border-left: 6px solid #111827;
+  padding-left: 18px;
+}
+
+.quest-mini-node,
+.option-card,
+.sample-card,
+.job-card,
+.board-card {
+  border-style: dashed;
+}
+
+@media (max-width: 1180px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .quest-entry-panel {
+    transform: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .app-shell {
+    padding-bottom: 0;
+  }
+
+  .hero-copy {
+    clip-path: none;
+  }
+
+  .hero-copy::before {
+    display: none;
+  }
+
+  .case-type-line {
+    width: 100%;
+  }
+}
+
+/* Anti-card pass: turn the product into an editorial workstation with lines, rows, and open space. */
+.hero-copy,
+.page-hero-copy,
+.panel,
+.hero-panel,
+.route-card,
+.module-card,
+.board-column,
+.framework-card,
+.quiz-focus,
+.quiz-side {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  clip-path: none;
+}
+
+.hero-copy {
+  padding: clamp(24px, 4vw, 54px) 0;
+}
+
+.hero-copy::after,
+.hero-copy::before,
+.route-card::after,
+.module-card::after,
+.board-column::after {
+  display: none;
+}
+
+.hero > .hero-panel,
+.page-hero .hero-panel,
+.dashboard-hero .profile-summary-card,
+.quiz-side,
+.panel {
+  border-top: 1px solid rgba(17, 24, 39, 0.18);
+  border-bottom: 1px solid rgba(17, 24, 39, 0.08);
+  padding: clamp(18px, 3vw, 30px) 0;
+}
+
+.hero > .hero-panel {
+  align-self: center;
+  transform: none;
+}
+
+.hero-panel-header,
+.panel-header,
+.section-heading {
+  border: 0;
+  padding-left: 0;
+}
+
+.hero-panel-header {
+  align-items: baseline;
+}
+
+.route-grid,
+.module-grid,
+.dashboard-grid,
+.workspace-grid,
+.insight-grid,
+.board-grid,
+.framework-grid {
+  gap: 0;
+  border-top: 1px solid rgba(17, 24, 39, 0.16);
+  border-bottom: 1px solid rgba(17, 24, 39, 0.12);
+}
+
+.route-grid {
+  grid-template-columns: 1fr;
+}
+
+.route-card {
+  min-height: auto;
+  padding: 28px 0;
+  border-bottom: 1px solid rgba(17, 24, 39, 0.1);
+}
+
+.route-card:last-child {
+  border-bottom: 0;
+}
+
+.route-card-dark {
+  color: var(--ink);
+  background: transparent;
+}
+
+.route-card-dark h2,
+.route-card-dark p,
+.route-card-dark span {
+  color: inherit;
+}
+
+.route-card h2 {
+  max-width: 18ch;
+  margin-top: 12px;
+}
+
+.module-grid {
+  grid-template-columns: 1fr;
+}
+
+.module-card {
+  display: grid;
+  grid-template-columns: 86px minmax(180px, 0.36fr) 1fr;
+  gap: 18px;
+  align-items: baseline;
+  padding: 22px 0;
+  border-bottom: 1px solid rgba(17, 24, 39, 0.1);
+}
+
+.module-card:last-child {
+  border-bottom: 0;
+}
+
+.module-card h3,
+.module-card p {
+  margin: 0;
+}
+
+.workspace-grid,
+.dashboard-grid,
+.insight-grid {
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.86fr);
+  gap: clamp(26px, 5vw, 72px);
+  border: 0;
+}
+
+.workspace-grid > *,
+.dashboard-grid > *,
+.insight-grid > * {
+  border-top: 1px solid rgba(17, 24, 39, 0.16);
+}
+
+.quiz-shell {
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 390px);
+  gap: clamp(28px, 5vw, 78px);
+}
+
+.quiz-focus,
+.quiz-side {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.option-list,
+.sample-list,
+.answer-stack,
+.job-list {
+  gap: 0;
+  border-top: 1px solid rgba(17, 24, 39, 0.12);
+}
+
+.option-card,
+.sample-card,
+.job-card,
+.answer-dot {
+  border: 0;
+  border-bottom: 1px solid rgba(17, 24, 39, 0.1);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.option-card {
+  padding: 18px 0;
+}
+
+.sample-card,
+.answer-dot {
+  padding: 16px 0;
+}
+
+.job-card {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.option-card.selected,
+.answer-dot.done {
+  border-color: rgba(17, 24, 39, 0.16);
+  background: linear-gradient(90deg, rgba(255, 196, 96, 0.18), transparent 72%);
+  box-shadow: none;
+}
+
+.profile-summary-card,
+.analysis-meta,
+.profile-mini-grid,
+.rewrite-grid,
+.board-grid,
+.framework-grid {
+  gap: 0;
+}
+
+.profile-summary-card > div,
+.profile-mini-grid > div,
+.stat-card,
+.file-card,
+.keyword-card,
+.rewrite-card,
+.tag-panel,
+.board-card {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.profile-summary-card > div,
+.analysis-meta > div,
+.profile-mini-grid > div,
+.rewrite-card,
+.board-card {
+  border-top: 1px solid rgba(17, 24, 39, 0.1);
+  padding: 16px 0;
+}
+
+.board-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid rgba(17, 24, 39, 0.16);
+}
+
+.board-column {
+  padding: 22px 22px 0 0;
+  border-right: 1px solid rgba(17, 24, 39, 0.1);
+}
+
+.board-column:last-child {
+  border-right: 0;
+}
+
+.board-card {
+  border-bottom: 1px solid rgba(17, 24, 39, 0.08);
+}
+
+.framework-grid {
+  border-top: 1px solid rgba(17, 24, 39, 0.16);
+}
+
+.framework-card {
+  padding: 20px 18px 20px 0;
+  border-right: 1px solid rgba(17, 24, 39, 0.1);
+}
+
+.framework-card:last-child {
+  border-right: 0;
+}
+
+.oc-spotlight-surface::before {
+  display: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .hero-copy:hover,
+  .hero-panel:hover,
+  .panel:hover,
+  .route-card:hover,
+  .module-card:hover,
+  .board-column:hover,
+  .framework-card:hover,
+  .quiz-focus:hover,
+  .quiz-side:hover,
+  .page-hero-copy:hover,
+  .scene-card-immersive:hover,
+  .quest-cover-panel:hover,
+  .ending-card:hover,
+  .ending-advice:hover {
+    transform: none;
+  }
+
+  .option-card:hover,
+  .answer-dot:hover,
+  .job-card:hover,
+  .sample-card:hover,
+  .quest-mini-node:hover {
+    transform: none;
+    border-color: rgba(17, 24, 39, 0.18);
+    background: linear-gradient(90deg, rgba(17, 24, 39, 0.06), transparent 76%);
+    color: var(--ink-strong);
+    box-shadow: none;
+  }
+
+  .option-card:hover strong,
+  .answer-dot:hover strong,
+  .job-card:hover h4,
+  .sample-card:hover strong,
+  .quest-mini-node:hover strong {
+    color: var(--ink-strong);
+  }
+
+  .option-card:hover span,
+  .answer-dot:hover span,
+  .job-card:hover p,
+  .job-card:hover small,
+  .job-card:hover .job-salary,
+  .sample-card:hover p,
+  .sample-card:hover span {
+    color: var(--ink-soft) !important;
+  }
+}
+
+@media (max-width: 1180px) {
+  .workspace-grid,
+  .dashboard-grid,
+  .insight-grid,
+  .quiz-shell,
+  .board-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .board-column,
+  .framework-card {
+    border-right: 0;
+    border-bottom: 1px solid rgba(17, 24, 39, 0.1);
+  }
+}
+
+@media (max-width: 760px) {
+  .module-card {
+    grid-template-columns: 1fr;
+    gap: 8px;
   }
 }

@@ -3,6 +3,9 @@ import { useNavigate } from 'react-router-dom'
 import { buildProfileFromQuiz, quizQuestions } from '../app/data'
 import type { QuizQuestion } from '../app/types'
 import { useProfile } from '../app/use-profile'
+import DecryptedText from '../components/interactions/DecryptedText'
+import ShinyText from '../components/interactions/ShinyText'
+import SpotlightSurface from '../components/interactions/SpotlightSurface'
 
 const questionMap = new Map(quizQuestions.map((question) => [question.id, question]))
 const firstQuestionId = 'root'
@@ -60,7 +63,7 @@ export function QuizPage() {
   return (
     <main>
       <section className="quiz-shell section">
-        <article className="quiz-focus panel">
+        <SpotlightSurface as="article" className="quiz-focus panel cursor-target">
           <div className="quiz-progress-line">
             <span>
               决策树第 {currentStep + 1} 步 · 已回答 {answeredCount} 题
@@ -72,8 +75,10 @@ export function QuizPage() {
           </div>
 
           <div className="quiz-question-block">
-            <span className="section-kicker">职业方向决策树</span>
-            <h1>{currentQuestion.prompt}</h1>
+            <span className="section-kicker"><ShinyText text="职业方向决策树" /></span>
+            <h1>
+              <DecryptedText key={currentQuestion.id} text={currentQuestion.prompt} revealDirection="center" />
+            </h1>
             <p>{currentQuestion.helper ?? '选一个最像你的答案，系统会继续追问更关键的问题。'}</p>
           </div>
 
@@ -99,10 +104,10 @@ export function QuizPage() {
               {isFinalAnswered ? '生成画像并查看岗位' : '继续追问'}
             </button>
           </div>
-        </article>
+        </SpotlightSurface>
 
-        <aside className="panel quiz-side">
-          <span className="section-kicker">画像预览</span>
+        <SpotlightSurface className="panel quiz-side cursor-target">
+          <span className="section-kicker"><ShinyText text="画像预览" speed={4} /></span>
           <h3>{previewProfile.targetRole}</h3>
           <p>{previewProfile.summary}</p>
 
@@ -138,7 +143,7 @@ export function QuizPage() {
               )
             })}
           </div>
-        </aside>
+        </SpotlightSurface>
       </section>
     </main>
   )

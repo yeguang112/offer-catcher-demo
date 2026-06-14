@@ -1,0 +1,20 @@
+.case-text-type {
+  display: inline-flex;
+  align-items: baseline;
+  min-height: 1.2em;
+  white-space: pre-wrap;
+}
+
+.case-text-type i {
+  margin-left: 0.18em;
+  color: #111827;
+  font-style: normal;
+  animation: caseCursorBlink 760ms steps(2, jump-none) infinite;
+}
+
+@keyframes caseCursorBlink {
+  50% {
+    opacity: 0;
+  }
+}
+

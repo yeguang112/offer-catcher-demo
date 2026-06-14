@@ -1,5 +1,8 @@
 import { Link } from 'react-router-dom'
 import { useProfile } from '../app/use-profile'
+import ShinyText from '../components/interactions/ShinyText'
+import SpotlightSurface from '../components/interactions/SpotlightSurface'
+import TextType from '../components/interactions/TextType'
 import { StepRail } from '../components/StepRail'
 
 const productModules = [
@@ -32,7 +35,18 @@ export function LandingPage() {
     <main>
       <section className="hero">
         <div className="hero-copy">
-          <h1>把求职从海投，变成一场有策略的通关副本。</h1>
+          <span className="section-kicker">
+            <ShinyText text="AI 开发｜Offer Catcher" />
+          </span>
+          <h1>猫猫求职情报局，正在替你筛出更像答案的岗位。</h1>
+          <div className="case-type-line">
+            <span>当前扫描：</span>
+            <TextType
+              text={['JD 关键词缺口', '简历证据密度', 'HR 沟通风险', '面试表达弹药库']}
+              typingSpeed={46}
+              deletingSpeed={20}
+            />
+          </div>
           <p>
             Offer Catcher 会先理解你的求职画像，再匹配岗位、拆解 JD、输出简历优化建议。
             你可以上传简历，也可以进入剧情式求职副本，在选择中看见自己的初筛风险和行动优先级。
@@ -66,7 +80,7 @@ export function LandingPage() {
           </div>
         </div>
 
-        <aside className="hero-panel quest-entry-panel">
+        <SpotlightSurface as="article" className="hero-panel quest-entry-panel cursor-target">
           <div className="hero-panel-header">
             <span>新增玩法</span>
             <strong>求职副本模拟器</strong>
@@ -83,33 +97,33 @@ export function LandingPage() {
               </Link>
             ))}
           </div>
-        </aside>
+        </SpotlightSurface>
       </section>
 
       <section className="section route-grid">
-        <article className="route-card route-card-dark">
+        <SpotlightSurface as="article" className="route-card route-card-dark cursor-target">
           <span>入口 01</span>
           <h2>想先体验一下？从剧情副本开始。</h2>
           <p>适合还没准备好简历、但想知道自己求职短板的学生。通过选择剧情生成结局卡，再进入岗位匹配。</p>
           <Link to="/quest" className="primary-action light-action">
             开始副本
           </Link>
-        </article>
+        </SpotlightSurface>
 
-        <article className="route-card">
+        <SpotlightSurface as="article" className="route-card cursor-target">
           <span>入口 02</span>
           <h2>已有简历？直接上传或粘贴文本。</h2>
           <p>适合已经准备过简历的学生。系统会模拟解析简历，抽取能力、经历证据和岗位方向。</p>
           <Link to="/intake/upload" className="secondary-action">
             进入上传页
           </Link>
-        </article>
+        </SpotlightSurface>
       </section>
 
       <section className="section">
         <div className="section-heading">
           <div>
-            <span className="section-kicker">产品结构</span>
+            <span className="section-kicker"><ShinyText text="产品结构" speed={4.1} /></span>
             <h2>娱乐性负责让学生愿意点下去，专业性负责让每次选择都有求职价值。</h2>
           </div>
           <p>
@@ -120,23 +134,23 @@ export function LandingPage() {
 
         <div className="module-grid">
           {productModules.map((module) => (
-            <article key={module.code} className="module-card">
+            <SpotlightSurface as="article" key={module.code} className="module-card cursor-target">
               <span>{module.code}</span>
               <h3>{module.title}</h3>
               <p>{module.detail}</p>
-            </article>
+            </SpotlightSurface>
           ))}
         </div>
       </section>
 
       <section className="section">
-        <div className="hero-panel">
+        <SpotlightSurface className="hero-panel cursor-target">
           <div className="hero-panel-header">
             <span>完整体验路径</span>
             <strong>从进入到投递</strong>
           </div>
           <StepRail currentStep="landing" />
-        </div>
+        </SpotlightSurface>
       </section>
     </main>
   )
